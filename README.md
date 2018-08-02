@@ -9,4 +9,4 @@ Hence , there should be a account on ngrok to handle request.
 
 A session is created for each user using python in yana.py file. The core working of bot is dealt over here. 
 
-yana.db is a database file which is used to store the values i.e. the value used throughiut the session and the predefined utterances.
+yana.db is a database file which is used to store the values i.e. the value used throughout the session and also the predefined utterances.

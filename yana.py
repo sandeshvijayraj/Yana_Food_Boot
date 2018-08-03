@@ -306,7 +306,7 @@ def callingitem(number,item):
 		else:
 			return question("pls select the area and city")
 
-#@ask.intent('AMAZON.CancelIntent')
+@ask.intent('AMAZON.CancelIntent')
 def cancelorder():
 	userid=context.System.user.userId
 	con=sql.connect("yana.db")
@@ -346,6 +346,7 @@ def calculate():
 	sess[userid][bill_str]=""
 	sess[userid][total_str]=""
 	sess[userid][total]=0
+	sess[userid][order_str]=''
 	for key in sess[userid][item_cart]:
 		sess[userid][order_str] +='...'+str(sess[userid][item_cart][key])+' '+key
 		sess[userid][bill_str]+='\r\n->'+str(sess[userid][item_cart][key])+' '+key
@@ -444,7 +445,8 @@ def yeshere():
 				sess[userid][status]=9
 		if sess[userid][total] != 0:
 			sess[userid][item_cart]=[]
-			return question('order is placed and total bill is '+str(sess[userid][total])).simple_card(title="Final BIll",content=sess[userid][total_str])
+			sess[userid][status]==11
+			return question('order is placed and total bill is '+str(sess[userid][total])+"please tell your ten digit mobile number for further assistant of payment").simple_card(title="Final BIll",content=sess[userid][total_str])
 		else:
 			return question('cart is empty please select items from the hotel')
 	elif sess[userid][status] is 9:
@@ -453,6 +455,7 @@ def yeshere():
 			return question("if you wana review your order say done or proceed")
 	else:
 		return question("yes yes")
+
 
 if __name__=="__main__":        
 	app.run(host='0.0.0.0',debug="True",port=5005)

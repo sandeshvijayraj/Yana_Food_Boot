@@ -1,12 +1,9 @@
-# food_delivery_bot
-food delivery bot using alexa voice processing
+# food_Ordering_bot
+food Ordering bot using alexa skill kit
+Convert .enc to .req file to Run
+Configure your alexa skill kit to be compitable with the backend request response design.
 
-.enc is the required .py file to run
+Since alexa skill set require HTTPS request , so ngrok is used as a third party to have global access to the localhost on which the python file will be running
+This program is capable to differentiate and control user session for seamless usage.
 
-account on amazon developer is required to test the code. 
-Since alexa skill set require HTTPS request , so ngrok is used as a third party to convert our http request to https.
-Hence , there should be a account on ngrok to handle request.
-
-A session is created for each user using python in yana.py file. The core working of bot is dealt over here. 
-
-yana.db is a database file which is used to store the values i.e. the value used throughout the session and also the predefined utterances.
+Yana.db stores information related to the food like price, name, restaurant name, Place and so on in the server it stores 
